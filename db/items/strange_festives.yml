@@ -1,0 +1,30 @@
+s_f_minigun:
+  defindex: 654
+  quality: 11
+s_f_rocket:
+  defindex: 658
+  quality: 11
+s_f_flame:
+  defindex: 659
+  quality: 11
+s_f_bat:
+  defindex: 660
+  quality: 11
+s_f_sticky:
+  defindex: 661
+  quality: 11
+s_f_wrench:
+  defindex: 662
+  quality: 11
+s_f_medigun:
+  defindex: 663
+  quality: 11
+s_f_sniper:
+  defindex: 664
+  quality: 11
+s_f_knife:
+  defindex: 665
+  quality: 11
+s_f_scatter:
+  defindex: 669
+  quality: 11
