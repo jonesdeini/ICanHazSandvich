@@ -1,0 +1,11 @@
+%h1= "n00bz"
+- if @players
+  - @players.each do |player|
+    %img{:src => player.avatar}
+    %a(href="http://www.tf2items.com/profiles/#{player.steam_id}") #{player.name}
+    %br
+    - player.items.each do |item|
+      = item.name
+    %br
+  %br
+= button_to "find some n00bz", :action => "create"
