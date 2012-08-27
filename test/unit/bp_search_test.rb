@@ -9,6 +9,6 @@ describe BP_Search do
   end
 
   it "must work" do
-    puts Item.count
+    puts BaseItem.count
   end
 end
