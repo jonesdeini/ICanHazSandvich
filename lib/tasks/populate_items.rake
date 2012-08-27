@@ -4,13 +4,19 @@ namespace :db do
   def populator(yml_file, klass)
     list = YAML.load_file("#{Rails.root}/db/items/#{yml_file}")
     list.each do |item|
+      # new_item = klass.find_or_create_by_name item.first
+      # ^^^ this works (no mass asignment error) but I'd rather let the validations handle dupes
+
       new_item = klass.new
       new_item.name = item.first
       new_item.defindex = item.last["defindex"]
       new_item.quality = item.last["quality"].to_f if item.last["quality"]
       new_item.float_value = item.last["float_value"].to_f if item.last["float_value"]
-      new_item.save
-      puts new_item.name
+      if new_item.save
+        puts "#{new_item.name} saved!"
+      else
+        puts "#{new_item.name} not saved. Errors: #{new_item.errors.full_messages.to_sentence}"
+      end
     end
   end
 
