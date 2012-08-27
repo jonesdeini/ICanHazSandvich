@@ -11,7 +11,7 @@ gem 'typhoeus'
 gem 'wirble'
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', git: "git@github.com:jonesdeini/factory_girl_rails.git"
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
 end

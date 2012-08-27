@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:jonesdeini/factory_girl_rails.git
+  revision: f605259a5a285b5b8e85eb303f37ebd4305a30bc
+  specs:
+    factory_girl_rails (4.0.0)
+      factory_girl (~> 4.0.0)
+      railties (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,9 +79,6 @@ GEM
       multi_json (~> 1.0)
     factory_girl (4.0.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.0.0)
-      factory_girl (~> 4.0.0)
-      railties (>= 3.0.0)
     ffi (1.1.5)
     haml (3.1.7)
     highline (1.6.13)
@@ -181,7 +186,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   delayed_job_active_record
-  factory_girl_rails
+  factory_girl_rails!
   haml
   jquery-rails
   minitest-rails
