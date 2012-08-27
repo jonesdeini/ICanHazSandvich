@@ -7,3 +7,9 @@ require "minitest/rails/capybara"
 require "minitest/pride"
 
 MiniTest::Rails.override_testunit!
+
+#FactoryGirl.find_definitions
+
+class MiniTest::Unit::TestCase
+  include FactoryGirl::Syntax::Methods
+end

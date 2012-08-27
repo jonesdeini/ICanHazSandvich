@@ -2,7 +2,7 @@ namespace :db do
   task :populate_items => %w( populate_meet_the_pyro_items )
 
   def populator(yml_file, klass)
-    list = YAML.load_file("#{Rails.root}/db/#{yml_file}")
+    list = YAML.load_file("#{Rails.root}/db/items/#{yml_file}")
     list.each do |item|
       new_item = klass.find_or_create_by_name \
         :name => item.first,
