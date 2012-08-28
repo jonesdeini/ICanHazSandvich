@@ -13,3 +13,18 @@ MiniTest::Rails.override_testunit!
 class MiniTest::Unit::TestCase
   include FactoryGirl::Syntax::Methods
 end
+
+# MiniTest::Spec doesn't support transactions out-of-the-box
+# So we patch it to transact
+class MiniTest::Spec
+
+  def run(*agrs, &block)
+    value = nil
+    ActiveRecord::Base.connection.transaction do
+      value = super
+      raise ActiveRecord::Rollback
+    end
+    value
+  end
+
+end
