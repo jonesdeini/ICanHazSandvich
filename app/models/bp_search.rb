@@ -18,26 +18,29 @@ class BP_Search
     raw_json = Typhoeus::Request.new(url)
     raw_json.on_complete do |response|
       if response.success?
-        puts "searching #{@index} bp"
-        json = JSON.parse response.body
-        if json["result"]["status"] == 1
-          Item.all.each do |item|
-            if item.search json
-              p = Player.new :steam_id => @steam_id
-              if p.valid?
-                p.save
-                p.inventories.create :item => item
-              end
-            end
-          end
-        else
-          puts "id: #{@steam_id} has a private bp"
-        end
+        search! JSON.parse(response.body)
       else
         puts "steam oh noes!"
       end
     end
     @hydra.queue raw_json
+  end
+
+  def search!(json)
+    puts "searching #{@index} bp"
+    if json["result"]["status"] == 1
+      Item.all.each do |item|
+        if item.search json
+          p = Player.new :steam_id => @steam_id
+          if p.valid?
+            p.save
+            p.inventories.create :item => item
+          end
+        end
+      end
+    else
+      puts "id: #{@steam_id} has a private bp"
+    end
   end
 
 end
