@@ -10,7 +10,8 @@ MiniTest::Rails.override_testunit!
 
 #FactoryGirl.find_definitions
 
-class MiniTest::Unit::TestCase
+#class MiniTest::Unit::TestCase
+class MiniTest::Spec
   include FactoryGirl::Syntax::Methods
 end
 

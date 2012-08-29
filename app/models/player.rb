@@ -32,8 +32,9 @@ class Player < ActiveRecord::Base
     raw_json = Net::HTTP.get_response(URI.parse(url)).body
     json = JSON.parse raw_json
     json["response"]["players"].each do |player|
-      update_attributes(:name => player["personaname"], 
-                        :avatar => player["avatarmedium"])
+      self.name = player["personaname"]
+      self.avatar = player["avatarmedium"]
+      save
     end
   end
   handle_asynchronously :get_player_info

@@ -3,6 +3,7 @@ class CreatePlayers < ActiveRecord::Migration
     create_table :players do |t|
       t.string :name
       t.string :steam_id
+      t.string :avatar
 
       t.timestamps
     end
