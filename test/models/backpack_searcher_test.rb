@@ -10,7 +10,7 @@ describe BackpackSearcher do
   end
 
   it "find the item and create a player" do
-    Item.count.must_equal 1
+    BaseItem.count.must_equal 1
     Player.count.must_equal 0
     BackpackSearcher.new @json, @steam_id
     Player.count.must_equal 1
