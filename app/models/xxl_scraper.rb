@@ -24,7 +24,7 @@ class XxlScraper
           if response.success?
             puts "xxl request #{index} complete"
             steam_id = (parse_source(id_page[index].response.body, STEAM_ID_REGEX)).first.try(:first)
-            BP_Search.new(steam_id, hydra, index) if steam_id
+            BackpackRetriever.new(hydra, index, steam_id) if steam_id
           else
             puts "oh noes!"
           end
