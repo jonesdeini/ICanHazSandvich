@@ -1,5 +1,6 @@
-PATH
-  remote: ~/factory_girl_rails/
+GIT
+  remote: git@github.com:jonesdeini/factory_girl_rails.git
+  revision: fe632cfd9fc31e39aceed476af41a21ee141ffde
   specs:
     factory_girl_rails (4.0.0)
       factory_girl (~> 4.0.0)

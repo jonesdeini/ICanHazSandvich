@@ -8,10 +8,8 @@ describe BP_Search do
   end
 
   it "must work" do
-    puts BaseItem.count
+    skip ("hey bro")
+    @s_f_knife.inventories.wont_be_nil
   end
 
-  it "must still work" do
-    puts BaseItem.count
-  end
 end

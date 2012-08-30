@@ -6,11 +6,9 @@ describe Player do
     @player = create :player
   end
 
-  it "must work" do
-    puts Player.count
+  it "must retrive name and avatar" do
+    @player.name.wont_be_nil
+    @player.avatar.wont_be_nil
   end
 
-  it "must still work" do
-    puts Player.first.inspect
-  end
 end

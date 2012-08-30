@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'capistrano'
+# gem 'daemons'
 gem 'debugger'
 gem 'delayed_job_active_record'
 gem 'haml'
@@ -11,9 +12,7 @@ gem 'typhoeus'
 gem 'wirble'
 
 group :development, :test do
-  #gem 'factory_girl_rails'
-  gem 'factory_girl_rails', path: "~/factory_girl_rails/"
-    #git: "git@github.com:jonesdeini/factory_girl_rails.git"
+  gem 'factory_girl_rails', git: "git@github.com:jonesdeini/factory_girl_rails.git"
   gem 'minitest-rails'
   gem 'minitest-rails-capybara'
 end
