@@ -16,4 +16,11 @@ describe BackpackSearcher do
     Player.count.must_equal 1
   end
 
+  it "must create inventories for every item" do
+    # stuff
+    it "must not recreate inventories that already exist" do
+      # stufff
+    end
+  end
+
 end
