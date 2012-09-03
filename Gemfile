@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'capistrano'
-# gem 'daemons'
+gem 'daemons'
 gem 'debugger'
 gem 'delayed_job_active_record'
 gem 'haml'

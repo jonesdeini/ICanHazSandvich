@@ -11,4 +11,10 @@ describe Player do
     @player.avatar.wont_be_nil
   end
 
+  it "must be valid" do
+    Player.delete_all
+    create :player_with_item
+    Player.first.items.count.must_equal 1
+  end
+
 end
