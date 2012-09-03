@@ -12,16 +12,14 @@ class BackpackSearcher
     if json["result"]["status"] == 1
       BaseItem.all.each do |item|
         if item.search json
-          p = Player.new 
-          # mass assignment thing
-          p.steam_id = steam_id
-          if p.save
-            puts "saved!"
+          p = Player.find_or_initialize_by_steam_id steam_id
+          if p.new_record?
+            puts p.errors.full_messages.to_sentence unless p.save
+          end
+          unless p.items.include? item
             inv = p.inventories.new
             inv.item = item
             inv.save
-          else
-            puts p.errors.full_messages
           end
         end
       end
