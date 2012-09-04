@@ -24,7 +24,11 @@ module ItemSearch
     json["result"]["items"].each do |players_item|
       if players_item["defindex"] == defindex
         if players_item["attributes"]
-          return true if players_item["attributes"]["float_value"] == float_value
+          players_item["attributes"].each do |attrs|
+            if attrs["float_value"] == float_value
+              return true
+           end
+         end
         end
       end
     end

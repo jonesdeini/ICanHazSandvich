@@ -10,8 +10,8 @@ class XxlScraper
   class << self
 
     def scrape
-      # url = "http://xxlgamers.gameme.com/tf"
-      url = "http://xxlgamers.gameme.com/overview/17"
+      url = "http://xxlgamers.gameme.com/tf"
+      # url = "http://xxlgamers.gameme.com/overview/17"
       page = retrieve_source(url)
       playerinfo_id_list = parse_source(page, PLAYER_LIST_REGEX)
       puts "parsed player info ids"

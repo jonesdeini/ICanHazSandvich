@@ -31,4 +31,13 @@ describe BackpackSearcher do
     Player.first.items.count.must_equal 1
   end
 
+  it "find crate and create a player" do
+    create :crate_19
+    Crate.count.must_equal 1
+    Player.count.must_equal 0
+    BackpackSearcher.new @json, @steam_id
+    Player.count.must_equal 1
+    Player.first.items.count.must_equal 1
+  end
+
 end

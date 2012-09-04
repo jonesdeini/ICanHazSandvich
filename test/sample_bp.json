@@ -13379,6 +13379,24 @@
 				"origin": 8
 			},
 			{
+				"id": 579907434,
+				"original_id": 499375378,
+				"defindex": 5022,
+				"level": 10,
+				"quality": 6,
+				"inventory": 2147483690,
+				"quantity": 1,
+				"origin": 0,
+				"attributes": [
+					{
+						"defindex": 187,
+						"value": 1104150528,
+						"float_value": 19.000000
+					}
+				]
+				
+			},
+			{
 				"id": 1065377812,
 				"original_id": 1065338898,
 				"defindex": 231,
