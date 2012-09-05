@@ -37,7 +37,7 @@ describe BackpackSearcher do
     Player.count.must_equal 0
     BackpackSearcher.new @json, @steam_id
     Player.count.must_equal 1
-    Player.first.items.count.must_equal 1
+    Player.first.items.count.must_equal 2
   end
 
 end
