@@ -7,7 +7,7 @@ FactoryGirl.define do
   factory :player_with_item, parent: :player do |player|
     sequence :steam_id
     player.after(:create) do |p|
-      p.items << create :strange_festive_knife
+      p.items << create(:strange_festive_knife)
     end
   end
 
