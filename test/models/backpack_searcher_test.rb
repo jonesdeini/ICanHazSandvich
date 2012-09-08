@@ -40,4 +40,21 @@ describe BackpackSearcher do
     Player.first.items.count.must_equal 2
   end
 
+  # NOTE woulda look at this???
+  # the player_with_item factory is creating a StrangeItem object
+  # the object seems to not be removed after the tests have ran...
+  it "must increment inventory count for multiple items in a bp" do
+    create :player_with_item
+    BackpackSearcher.new @json, @steam_id
+
+  end
+
+  it "must remove items no longer in inventory" do
+
+  end
+
+  it "must remove player if they no longer have any items" do
+
+  end
+
 end

@@ -15,11 +15,15 @@ class BackpackSearcher
           p = Player.find_or_initialize_by_steam_id steam_id
           if p.new_record?
             puts p.errors.full_messages.to_sentence unless p.save
+          else
+            p.inventories.delete_all
           end
-          unless p.items.include? item
-            inv = p.inventories.new
-            inv.item = item
+          if p.items.include? item
+            inv = p.inventories.find_by_item_id item
+            inv.count = inv.count + 1
             inv.save
+          else
+            p.items << item
           end
         end
       end

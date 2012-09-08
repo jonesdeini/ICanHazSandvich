@@ -3,7 +3,7 @@ require 'minitest_helper'
 describe Player do
 
   before do
-    @player = create :player
+    @player = create(:player, steam_id: "76561198015466913")
   end
 
   it "must retrive name and avatar" do
