@@ -15,5 +15,10 @@ FactoryGirl.define do
       name "strange festive wrench"
     end
 
+    factory :strange_festive_scatter do
+      defindex 669
+      name "strange festive scatter"
+    end
+
   end
 end

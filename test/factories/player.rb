@@ -15,7 +15,7 @@ FactoryGirl.define do
     end
 
     factory :player_with_s_f_knife_2 do
-      items { create(:strange_festive_knife) }
+      items { [create(:strange_festive_knife)] }
     end
 
   end

@@ -7,12 +7,12 @@ class BackpackSearcher
     search! json, steam_id
   end
 
-  # TODO make total_items scope on Player and delete when 0
   def search!(json, steam_id)
     puts "searching #{steam_id} bp" unless Rails.env == "test"
     if json["result"]["status"] == 1
 
-      # if the player already exists 
+      # if the player already exists delete their inventory so it
+      # can be refreshed
       p = Player.find_or_initialize_by_steam_id steam_id
       if p.new_record?
         puts p.errors.full_messages.to_sentence unless p.save
@@ -21,18 +21,16 @@ class BackpackSearcher
       end
 
       BaseItem.all.each do |item|
-        if item.search json
-            puts "bro"
-          if p.items.include? item
-            inv = p.inventories.find_by_item_id item.id
-            inv.item_count = inv.item_count + 1
-            inv.save
-          else
-            p.items << item
-          end
+        item_count = item.search json
+        unless item_count == 0
+          inv = p.inventories.new
+          inv.item = item
+          inv.item_count = item_count
+          inv.save
         end
       end
 
+      # TODO make total_items scope on Player and delete when 0
       p.delete unless p.items.any?
     else
       puts "id: #{steam_id} has a private bp"

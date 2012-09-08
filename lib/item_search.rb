@@ -1,38 +1,41 @@
 module ItemSearch
 
   def basic_search(json)
+    item_count = 0
     json["result"]["items"].each do |players_item|
       if players_item["defindex"] == defindex
-        return true
+        item_count = item_count + 1
       end
     end
-    return false
+    item_count
   end
 
   def quality_search(json)
+    item_count = 0
     json["result"]["items"].each do |players_item|
       if players_item["defindex"] == defindex
         if players_item["quality"] == quality
-          return true
+          item_count = item_count + 1
         end
       end
     end
-    return false
+    item_count
   end
 
   def crate_search(json)
+    item_count = 0
     json["result"]["items"].each do |players_item|
       if players_item["defindex"] == defindex
         if players_item["attributes"]
           players_item["attributes"].each do |attrs|
             if attrs["float_value"] == float_value
-              return true
+              item_count = item_count + 1
            end
          end
         end
       end
     end
-    return false
+    item_count
   end
 
 end

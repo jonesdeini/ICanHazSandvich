@@ -41,15 +41,23 @@ describe BackpackSearcher do
 
   it "must increment inventory count for multiple items in a bp" do
     BackpackSearcher.new @json, @steam_id
+    Player.count.must_equal 1
     player = Player.first
     player.items.count.must_equal 1
     player.inventories.count.must_equal 1
     player.inventories.first.item_count.must_equal 2
-
   end
 
   it "must remove items no longer in inventory" do
-
+    # we dont want the item created by the setup
+    BaseItem.delete_all
+    # TODO neither works, no errors just doesnt have items
+    #p = create :player_with_s_f_knife_2 #, items: [create(:strange_festive_scatter)]
+    p = create :player_with_s_f_knife
+    p.items << create(:strange_festive_scatter)
+    p.items.count.must_equal 2
+    BackpackSearcher.new @json, p.steam_id
+    p.items.count.must_equal 1
   end
 
   it "must remove player if they no longer have any items" do
