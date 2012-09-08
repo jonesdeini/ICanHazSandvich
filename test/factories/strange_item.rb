@@ -1,6 +1,9 @@
 FactoryGirl.define do
   factory :strange_item do
-  quality 11
+    quality 11
+    sequence :defindex
+    # NOTE need parens for syntastic?
+    sequence(:name) { |n| "strange #{n}" }
 
     factory :strange_festive_knife do
       defindex 665

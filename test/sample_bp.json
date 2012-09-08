@@ -13169,6 +13169,24 @@
 					}
 				]
 				
+			},
+			{
+				"id": 1085573354,
+				"original_id": 356936623,
+				"defindex": 5022,
+				"level": 10,
+				"quality": 6,
+				"inventory": 2147483662,
+				"quantity": 1,
+				"origin": 0,
+				"attributes": [
+					{
+						"defindex": 187,
+						"value": 1100480512,
+						"float_value": 19.000000
+					}
+				]
+				
 			}
 		]
 		

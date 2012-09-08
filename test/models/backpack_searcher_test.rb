@@ -4,7 +4,7 @@ describe BackpackSearcher do
 
   before do
     @steam_id = "76561198015466913"
-    create :strange_festive_knife
+    create :crate_19
     file = File.open("./test/sample_bp.json")
     @json = JSON.parse(file.read)
   end
@@ -32,20 +32,19 @@ describe BackpackSearcher do
   end
 
   it "find crate and create a player" do
-    create :crate_19
     Crate.count.must_equal 1
     Player.count.must_equal 0
     BackpackSearcher.new @json, @steam_id
     Player.count.must_equal 1
-    Player.first.items.count.must_equal 2
+    Player.first.items.count.must_equal 1
   end
 
-  # NOTE woulda look at this???
-  # the player_with_item factory is creating a StrangeItem object
-  # the object seems to not be removed after the tests have ran...
   it "must increment inventory count for multiple items in a bp" do
-    create :player_with_item
     BackpackSearcher.new @json, @steam_id
+    player = Player.first
+    player.items.count.must_equal 1
+    player.inventories.count.must_equal 1
+    player.inventories.first.item_count.must_equal 2
 
   end
 
@@ -54,7 +53,19 @@ describe BackpackSearcher do
   end
 
   it "must remove player if they no longer have any items" do
+    file = File.open("./test/empty_bp.json")
+    empty_bp = JSON.parse(file.read)
+    p = create :player_with_item
+    Player.count.must_equal 1
+    BackpackSearcher.new empty_bp, p.steam_id
+    Player.count.must_equal 0
+  end
 
+  it "wont create players with no items" do
+    file = File.open("./test/empty_bp.json")
+    empty_bp = JSON.parse(file.read)
+    BackpackSearcher.new empty_bp, @steam_id
+    Player.count.must_equal 0
   end
 
 end
