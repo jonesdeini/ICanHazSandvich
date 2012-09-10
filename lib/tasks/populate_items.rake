@@ -1,5 +1,5 @@
 namespace :db do
-  task :populate_items => %w( populate_meet_the_pyro_items )
+  task :populate_items => %w( populate_strange_festive_weapons populate_crates )
 
   def populator(yml_file, klass)
     list = YAML.load_file("#{Rails.root}/db/items/#{yml_file}")
