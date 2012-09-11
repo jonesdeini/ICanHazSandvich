@@ -31,7 +31,11 @@ class BackpackSearcher
       end
 
       # TODO make total_items scope on Player and delete when 0
-      p.delete unless p.items.any?
+      if p.items.any?
+        p.get_player_info
+      else
+        p.delete
+      end
     else
       puts "id: #{steam_id} has a private bp"
     end

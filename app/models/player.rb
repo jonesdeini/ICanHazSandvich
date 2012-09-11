@@ -15,7 +15,7 @@ class Player < ActiveRecord::Base
   require 'net/http' 
 
   # callbacks
-  after_create :get_player_info
+#  after_create :get_player_info
 
   # associations
   has_many :inventories
