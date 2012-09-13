@@ -4,8 +4,8 @@
     %img{:src => player.avatar}
     %a(href="http://www.tf2items.com/profiles/#{player.steam_id}") #{player.name}
     %br
-    - player.items.each do |item|
-      = item.name
+    - player.inventories.each do |inv|
+      = "#{inv.item.name} : #{inv.item_count}"
     %br
   %br
 = button_to "find some n00bz", :action => "create"

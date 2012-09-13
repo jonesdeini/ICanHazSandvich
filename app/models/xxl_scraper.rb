@@ -4,8 +4,8 @@ require 'typhoeus'
 class XxlScraper
 
   PLAYER_LIST_REGEX = /http\:\/\/xxlgamers\.gameme\.com\/playerinfo\/(\d+)/
-    STEAM_ID_REGEX = /http\:\/\/steamcommunity\.com\/profiles\/(\d+)/
-    PLAYER_INFO = "http://xxlgamers.gameme.com/playerinfo/"
+  STEAM_ID_REGEX = /http\:\/\/steamcommunity\.com\/profiles\/(\d+)/
+  PLAYER_INFO = "http://xxlgamers.gameme.com/playerinfo/"
 
   class << self
 
