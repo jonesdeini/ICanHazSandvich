@@ -6,7 +6,7 @@ class BaseItem < ActiveRecord::Base
 
   self.table_name = "items"
 
-  has_many :inventories
+  has_many :inventories, :foreign_key => "item_id"
   has_many :players, :through => :inventories
 
   validates_presence_of :name, :defindex
