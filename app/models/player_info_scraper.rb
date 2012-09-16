@@ -9,7 +9,9 @@ class PlayerInfoScraper
       playerinfo_url_list.on_complete do |response|
         if response.success?
           playerinfo_urls = parse_player_info_page_addresses response.body
-          puts playerinfo_urls.inspect
+          playerinfo_urls.each do |playerinfo_url|
+            SteamIdScraper.scrape playerinfo_url, hydra
+          end
 
         else
           puts "player info url list request failed"

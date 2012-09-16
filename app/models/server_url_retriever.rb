@@ -14,6 +14,8 @@ class ServerUrlRetriever
       if response.success?
         server_addresses = parse_server_addresses response.body
       server_addresses.each do |server_url|
+        # NOTE could wrap this in a method on child class
+        # giving clan specific regex
         PlayerInfoScraper.scrape server_url, hydra
       end
       else
