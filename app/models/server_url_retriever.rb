@@ -13,11 +13,9 @@ class ServerUrlRetriever
     server_list.on_complete do |response|
       if response.success?
         server_addresses = parse_server_addresses response.body
-      server_addresses.each do |server_url|
-        # NOTE could wrap this in a method on child class
-        # giving clan specific regex
-        PlayerInfoScraper.scrape server_url, hydra
-      end
+        server_addresses.each do |server_url|
+          call_playerinfo_scraper server_url, hydra
+        end
       else
         puts "server url list request failed"
       end
@@ -25,11 +23,11 @@ class ServerUrlRetriever
     hydra.run
   end
 
-  def parse_server_addresses(url)
+  def call_playerinfo_scraper(server_url, hydra)
     # over ride me bro
   end
 
-  def parse_player_info_page_addresses(url)
+  def parse_server_addresses(server_list)
     # over ride me bro
   end
 

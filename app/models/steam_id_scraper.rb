@@ -2,7 +2,6 @@ require 'typhoeus'
 
 class SteamIdScraper
 
-  STEAM_ID_REGEX = /http\:\/\/steamcommunity\.com\/profiles\/(\d+)/
   class << self
 
     def scrape(playerinfo_id_url, hydra)
