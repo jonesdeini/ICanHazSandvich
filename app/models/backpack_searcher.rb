@@ -30,9 +30,9 @@ class BackpackSearcher
         end
       end
 
-      # TODO make total_items scope on Player and delete when 0
+
       if p.items.any?
-        p.get_player_info
+        p.get_player_info if p.name.nil?
       else
         p.delete
       end

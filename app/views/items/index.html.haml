@@ -1,0 +1,10 @@
+%h1 Items
+- @items.each do |item|
+  %h2= item.name
+  - item.players.each do |player|
+    %br
+    %img{:src => player.avatar}
+    %a(href="http://www.tf2items.com/profiles/#{player.steam_id}") #{player.name}
+    %br
+    - inv = player.inventories.where(:item_id => item.id).first
+    = inv.item_count

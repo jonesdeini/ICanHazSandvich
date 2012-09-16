@@ -12,7 +12,6 @@ class PlayerInfoScraper
           playerinfo_urls.each do |playerinfo_url|
             SteamIdScraper.scrape playerinfo_url, hydra
           end
-
         else
           puts "player info url list request failed"
         end

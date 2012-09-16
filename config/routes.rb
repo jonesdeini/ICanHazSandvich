@@ -1,4 +1,6 @@
 ICanHazSandvich::Application.routes.draw do
+  get "items/index"
+
   resources :players
 
   root :to => 'players#index'

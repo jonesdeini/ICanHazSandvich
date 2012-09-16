@@ -39,4 +39,10 @@ class Player < ActiveRecord::Base
   end
   handle_asynchronously :get_player_info
 
+  def refresh_backpack!
+    hydra = Typhoeus::Hydra.new(max_concurrency: 8)
+    BackpackRetriever.new hydra, 0, steam_id
+    hydra.run
+  end
+
 end
