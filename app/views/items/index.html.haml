@@ -7,4 +7,4 @@
     %a(href="http://www.tf2items.com/profiles/#{player.steam_id}") #{player.name}
     %br
     - inv = player.inventories.where(:item_id => item.id).first
-    = inv.item_count
+    = "#{inv.item_count} | inventory count: #{player.inventories.count}"
