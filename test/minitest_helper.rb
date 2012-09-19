@@ -1,24 +1,30 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
 
-require "minitest/autorun"
 require "minitest/rails"
+require "minitest/autorun"
 require "minitest/rails/capybara"
 require "minitest/pride"
 
 MiniTest::Rails.override_testunit!
 
-#FactoryGirl.find_definitions
+# this is included in cas_test_toolkit; if reverting back to
+# my fork of factory_girl_rails uncomment this
+#class MiniTest::Spec
+#    include FactoryGirl::Syntax::Methods
+#end
 
-#class MiniTest::Unit::TestCase
+###############
+#             #
+# Spork Setup #
+#             #
+###############
+require 'spork'
+
+Spork.prefork do
+
+# spork doesnt use this unless it's here
 class MiniTest::Spec
-  include FactoryGirl::Syntax::Methods
-end
-
-# MiniTest::Spec doesn't support transactions out-of-the-box
-# So we patch it to transact
-class MiniTest::Spec
-
   def run(*agrs, &block)
     value = nil
     ActiveRecord::Base.connection.transaction do
@@ -27,5 +33,19 @@ class MiniTest::Spec
     end
     value
   end
+end
+
+end
+
+Spork.each_run do
+
+  # Spork doesn't pickup on changes made to models that are namespaced.
+  # e.g. app/models/permissions/blah.rb will not be reloaded.
+  # So we have to force it to reload the changes.
+  ActionDispatch::Reloader.cleanup!
+  ActionDispatch::Reloader.prepare!
+
+  # reload factories
+  FactoryGirl.reload
 
 end

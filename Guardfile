@@ -1,7 +1,4 @@
-# A sample Guardfile
-# More info at https://github.com/guard/guard#readme
-
-guard 'spork', :cucumber => false, :rspec => false do
+guard 'spork', :cucumber => false, :rspec => false, :minitest => true do
   watch('config/application.rb')
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
@@ -11,7 +8,7 @@ guard 'spork', :cucumber => false, :rspec => false do
   watch('test/minitest_helper.rb') { :minitest }
 end
 
-guard 'minitest', :color => true do
+guard 'minitest', :color => true, :drb => true do
 
   watch(%r|^test/controllers/(.*)_test\.rb|)
   watch(%r|^test/models/(.*)_test\.rb|)

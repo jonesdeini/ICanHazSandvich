@@ -15,6 +15,8 @@ group :development, :test do
   #gem 'factory_girl_rails', git: "git@github.com:jonesdeini/factory_girl_rails.git"
   #gem 'minitest-rails'
   #gem 'cas_test_toolkit', path: '~/cas_test_toolkit'
+  gem 'spork-minitest', git: 'git@github.com:jonesdeini/spork-minitest.git'
+  #gem 'spork-minitest', path: '~/spork-minitest'
   gem 'cas_test_toolkit', '0.0.2', git: 'git@github.com:Liaison-Intl/cas_test_toolkit.git'
   gem 'minitest-rails-capybara'
 end
