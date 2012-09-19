@@ -1,9 +1,9 @@
 ICanHazSandvich::Application.routes.draw do
-  get "items/index"
+
+  root to: 'items#index'
+
+  resources :items, except: [:destroy]
 
   resources :players
 
-  root :to => 'players#index'
-
-  # See how all your routes lay out with "rake routes"
 end
