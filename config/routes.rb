@@ -4,6 +4,10 @@ ICanHazSandvich::Application.routes.draw do
 
   resources :items, except: [:destroy]
 
-  resources :players
+  resources :players do
+    member do
+      get 'hide'
+    end
+  end
 
 end

@@ -1,5 +1,4 @@
 class PlayersController < ApplicationController
-require 'xxl_scraper'
 
   def index
     @players = Player.all
@@ -8,6 +7,13 @@ require 'xxl_scraper'
   def create
     XxlScraper.scrape
     render :index
+  end
+
+  def hide
+    player = Player.find params[:id]
+    player.hide = true
+    player.save
+    redirect_to :back
   end
 
 end

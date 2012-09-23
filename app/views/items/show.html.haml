@@ -1,8 +1,10 @@
 %h1= @item.name
 - @item.players.each do |player|
-  %br
-  %img{:src => player.avatar}
-  %a(href="http://steamcommunity.com/profiles/#{player.steam_id}") #{player.name}
-  %br
-  - inv = player.inventories.where(:item_id => @item.id).first
-  = "#{inv.item_count} | inventory count: #{player.inventories.count}"
+  - unless player.hide?
+    %br
+    %img{:src => player.avatar}
+    %a(href="http://steamcommunity.com/profiles/#{player.steam_id}") #{player.name}
+    %br
+    - inv = player.inventories.where(:item_id => @item.id).first
+    = "#{inv.item_count} | inventory count: #{player.inventories.count}"
+    = link_to "hide", controller: "players", action: "hide", id: player.id
