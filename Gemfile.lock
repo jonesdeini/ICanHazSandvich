@@ -14,6 +14,13 @@ GIT
       spork-rails
       spork-testunit
 
+GIT
+  remote: git@github.com:jonesdeini/spork-minitest.git
+  revision: d5ffaf3fe4fb180012d1111d6974819598bbb150
+  specs:
+    spork-minitest (0.0.3)
+      spork
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -230,6 +237,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
+  spork-minitest!
   therubyracer
   typhoeus
   uglifier (>= 1.0.3)

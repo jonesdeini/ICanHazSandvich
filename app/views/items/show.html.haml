@@ -1,5 +1,5 @@
 %h1= @item.name
-- @item.players.each do |player|
+- @item.players.sort{ |x,y| y.updated_at <=> x.updated_at }.each do |player|
   - unless player.hide?
     %br
     %img{:src => player.avatar}
