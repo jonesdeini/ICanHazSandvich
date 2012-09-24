@@ -19,3 +19,9 @@ task :lotus_noobz => :environment do |task|
   puts task.full_comment
   LotusScraper.new
 end
+
+desc "find gameliberty noobz"
+task :gameliberty_noobz => :environment do |task|
+  puts task.full_comment
+  GamelibertyScraper.new
+end

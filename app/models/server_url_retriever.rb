@@ -17,7 +17,7 @@ class ServerUrlRetriever
           call_playerinfo_scraper server_url, hydra
         end
       else
-        puts "server url list request failed"
+        puts "server url list request failed \n #{response.inspect}"
       end
     end
     hydra.run
