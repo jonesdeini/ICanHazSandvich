@@ -5,6 +5,9 @@
     %img{:src => player.avatar}
     %a(href="http://steamcommunity.com/profiles/#{player.steam_id}") #{player.name}
     %br
+    = "traded: #{player.traded ? 'yes' : 'no'}"
+    %br
     - inv = player.inventories.where(:item_id => @item.id).first
     = "#{inv.item_count} | inventory count: #{player.inventories.count}"
     = link_to "hide", controller: "players", action: "hide", id: player.id
+    = link_to "traded", controller: "players", action: "traded", id: player.id

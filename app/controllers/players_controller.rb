@@ -16,4 +16,11 @@ class PlayersController < ApplicationController
     redirect_to :back
   end
 
+  def traded
+    player = Player.find params[:id]
+    player.traded = true
+    player.save
+    redirect_to :back
+  end
+
 end

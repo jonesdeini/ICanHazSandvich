@@ -7,6 +7,7 @@ ICanHazSandvich::Application.routes.draw do
   resources :players do
     member do
       get 'hide'
+      get 'traded'
     end
   end
 
