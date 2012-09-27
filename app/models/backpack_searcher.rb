@@ -7,7 +7,6 @@ class BackpackSearcher
   end
 
   def search!(backpack, steam_id)
-    puts "searching #{steam_id} bp" unless Rails.env == "test"
     if backpack["result"]["status"] == 1
 
       # if the player already exists delete their inventory so it
