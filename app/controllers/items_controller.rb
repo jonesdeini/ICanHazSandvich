@@ -6,12 +6,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = BaseItem.find params[:id]
+
     if params[:sort] == "inv_count"
       @players = @item.players.sort_by { |player| player.inventories.count }
-    elsif params[:sort] ==  "updated_at"
+    elsif params[:sort] ==  "updated_at" || params[:sort].nil?
       @players = @item.players.sort{ |x,y| y.updated_at <=> x.updated_at }
     else
-      @players = @item.players.sort{ |x,y| y.updated_at <=> x.updated_at }
+      @players = []
     end
   end
 
