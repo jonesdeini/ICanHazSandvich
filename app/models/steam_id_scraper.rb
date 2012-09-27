@@ -9,7 +9,7 @@ class SteamIdScraper
       playerinfo_page.on_complete do |response|
         if response.success?
           steam_id = response.body.scan(/http\:\/\/steamcommunity\.com\/profiles\/(\d+)/).flatten.first
-          BackpackRetriever.new(hydra, 0, steam_id) if steam_id
+          BackpackRetriever.new(hydra, steam_id) if steam_id
         else
           puts "player info page request failed"
         end

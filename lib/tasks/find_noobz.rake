@@ -1,6 +1,6 @@
 require "benchmark"
 
-task :find_noobz => %w( xxl_noobz xxl_noobz_refactor )
+task :find_noobz => %w( xxl_noobz_refactor lotus_noobz gameliberty_noobz )
 
 desc "find xxl noobz"
 task :xxl_noobz => :environment do |task|

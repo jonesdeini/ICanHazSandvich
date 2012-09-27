@@ -4,4 +4,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+Rake::TaskManager.record_task_metadata = true
+
 ICanHazSandvich::Application.load_tasks

@@ -1,15 +1,14 @@
-require 'net/http'
 require 'typhoeus'
 
 class BackpackSearcher
 
-  def initialize(json, steam_id)
-    search! json, steam_id
+  def initialize(backpack, steam_id)
+    search! backpack, steam_id
   end
 
-  def search!(json, steam_id)
+  def search!(backpack, steam_id)
     puts "searching #{steam_id} bp" unless Rails.env == "test"
-    if json["result"]["status"] == 1
+    if backpack["result"]["status"] == 1
 
       # if the player already exists delete their inventory so it
       # can be refreshed
@@ -21,7 +20,7 @@ class BackpackSearcher
       end
 
       BaseItem.all.each do |item|
-        item_count = item.search json
+        item_count = item.search backpack
         unless item_count == 0
           inv = p.inventories.new
           inv.item = item

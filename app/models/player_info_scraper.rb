@@ -9,6 +9,7 @@ class PlayerInfoScraper
       playerinfo_url_list.on_complete do |response|
         if response.success?
           playerinfo_urls = response.body.scan(regex).compact.uniq.flatten
+          puts playerinfo_urls.count
           playerinfo_urls.each do |playerinfo_url|
             SteamIdScraper.scrape playerinfo_url, hydra
           end
