@@ -7,7 +7,7 @@ task :refresh_noobz => :environment do |task|
 
   hydra = Typhoeus::Hydra.new(max_concurrency: 8)
   Player.all.each do |player|
-    BackpackRetriever.new hydra, 0, player.steam_id
+    BackpackRetriever.new hydra, player.steam_id
   end
   hydra.run
   puts "player start count: #{start_count} \n refreshed player count: #{Player.count}"
