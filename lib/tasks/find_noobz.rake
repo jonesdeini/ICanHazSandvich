@@ -25,3 +25,13 @@ task :gameliberty_noobz => :environment do |task|
   puts task.full_comment
   GamelibertyScraper.new
 end
+
+desc "can't stop, won't stop findin' them noobz"
+task :cant_stop_wont_stop => :environment do |task|
+  puts task.full_comment
+  while
+    XxlScraperRefactor.new
+    GamelibertyScraper.new
+    LotusScraper.new
+  end
+end
