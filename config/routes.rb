@@ -1,5 +1,7 @@
 ICanHazSandvich::Application.routes.draw do
 
+  get "home/index"
+
   root to: 'items#index'
 
   resources :items, except: [:destroy]
