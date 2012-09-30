@@ -5,7 +5,7 @@
   - unless player.hide?
     %br
     %img{:src => player.avatar}
-    %a(href="http://steamcommunity.com/profiles/#{player.steam_id}") #{player.name}
+    %a(href="http://steamcommunity.com/profiles/#{player.steam_id}" target="_blank") #{player.name}
     %br
     = "traded: #{player.traded ? 'yes' : 'no'}"
     %br
