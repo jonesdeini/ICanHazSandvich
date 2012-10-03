@@ -1,7 +1,7 @@
 
 require 'minitest_helper'
 
-describe BackpackSearcher do
+describe Crate do
 
   before do
     create :crate_19

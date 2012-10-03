@@ -4,5 +4,4 @@ FactoryGirl.define do
     defindex 5022
     float_value 19.0
   end
-
 end

@@ -49,3 +49,7 @@ Spork.each_run do
   FactoryGirl.reload
 
 end
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
