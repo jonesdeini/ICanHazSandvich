@@ -1,11 +1,7 @@
-require 'item_search'
-
 class Paint < BaseItem
 
-  include ItemSearch
-
   def search(json)
-    ItemSearch.basic_search(json, self)
+    basic_search json
   end
 
 end
