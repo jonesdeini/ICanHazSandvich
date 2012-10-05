@@ -1,7 +1,6 @@
 %h1= @item.name
 = sortable "inv_count", "sort by inventory count"
 = sortable "updated_at", "sort by updated at"
-= sortable "item_count", "sort by item_count"
 - @players.each do |player|
   - unless player.hide?
     %br
