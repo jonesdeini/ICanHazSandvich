@@ -17,6 +17,7 @@ describe "HidePlayer Acceptance Test" do
 
   it "must not show a hidden player" do
     visit item_path @crate_19
+    # visit "/items/#{@crate_19.id}"
     page.must_have_content 'hide'
     click_link 'hide'
     # this will fail, so asserting content exists is redundant

@@ -12,6 +12,8 @@ guard 'minitest', :color => true, :drb => true do
 
   watch(%r|^test/controllers/(.*)_test\.rb|)
   watch(%r|^test/models/(.*)_test\.rb|)
+  watch(%r|^test/helpers/(.*)_test\.rb|)
+  watch(%r|^test/acceptance/(.*)_test\.rb|)
 
   # Rails 3.2
   watch(%r|^app/controllers/(.*)\.rb|) { |m| "test/controllers/#{m[1]}_test.rb" }

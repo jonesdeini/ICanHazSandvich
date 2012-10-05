@@ -45,4 +45,10 @@ class Player < ActiveRecord::Base
     hydra.run
   end
 
+  def self.sort_scope(sort_key)
+    send("sort_by_#{sort_key}")
+  end
+
+  scope :sort_by_updated_at, order('updated_at')
+  scope :sort_by_inv_count, order('inventories')
 end

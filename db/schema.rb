@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120925004941) do
+ActiveRecord::Schema.define(:version => 20121005153924) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -51,10 +51,11 @@ ActiveRecord::Schema.define(:version => 20120925004941) do
     t.string   "name"
     t.string   "steam_id"
     t.string   "avatar"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.boolean  "hide"
     t.boolean  "traded"
+    t.integer  "inventories_count"
   end
 
 end

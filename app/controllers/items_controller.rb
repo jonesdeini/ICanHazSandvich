@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     else
       @players = []
     end
+    @players = @item.players.sort_scope params[:sort]
   end
 
 end

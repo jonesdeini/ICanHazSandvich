@@ -2,7 +2,7 @@ ICanHazSandvich::Application.routes.draw do
 
   get "home/index"
 
-  root to: 'items#index'
+  root to: "home#index"
 
   resources :items, except: [:destroy]
 
