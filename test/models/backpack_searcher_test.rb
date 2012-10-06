@@ -22,6 +22,7 @@ describe BackpackSearcher do
     create :strange_festive_wrench
     BackpackSearcher.new @json, @steam_id
     Player.first.items.count.must_equal 2
+    Player.first.inventories_count.must_equal 2
   end
 
   it "wont recreate inventories that already exist" do
