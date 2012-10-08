@@ -7,7 +7,7 @@ class BackpackSearcher
   end
 
   def search!(backpack, steam_id)
-    if backpack["result"]["status"] == 1
+    if backpack["result"]["status"] == 1 && backpack["result"]["num_backpack_slots"] != 50
 
       # if the player already exists delete their inventory so it
       # can be refreshed
