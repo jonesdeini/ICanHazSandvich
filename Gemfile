@@ -8,6 +8,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '3.2.8'
+gem 'rvm-capistrano'
 gem 'typhoeus'
 gem 'wirble'
 

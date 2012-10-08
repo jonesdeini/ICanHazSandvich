@@ -1,5 +1,8 @@
 require "bundler/capistrano"
-load 'deploy/assets'
+require "rvm/capistrano"
+load "deploy/assets"
+
+set :rvm_ruby_string, "ruby-1.9.3-p194@ICanHazSandvich"
 
 set :application, "ICanHazSandvich"
 set :deploy_to, "/home/sandvich"
