@@ -21,6 +21,16 @@ role :db,  location, :primary => true # This is where Rails migrations will run
 
 ssh_options[:forward_agent] = true
 
+namespace :configs do
+  task :symlink do
+    run "cp -R ~/shared/config/* #{release_path}/config/"
+  end
+end
+
 before "deploy:setup", "rvm:install_ruby"
+
+after "deploy:update_code", "deploy:migrate"
+
+before "deploy:finalize_update", "configs:symlink"
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
