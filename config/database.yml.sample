@@ -1,20 +1,16 @@
-development:
+all_the_things: &all_the_things
   adapter: postgresql
-  database: sandvich_development
   pool: 5
-  encoding: unicode
-  # username:
-  # password:
-  # host:
-  # port:
+  username: jonesdeini
+
+development:
+  <<: *all_the_things
+  database: sandvich_development
 
 test:
-  adapter: postgresql
+  <<: *all_the_things
   database: sandvich_test
-  pool: 5
-  pool: 5
-  encoding: unicode
-  # username:
-  # password:
-  # host:
-  # port:
+
+production:
+  <<: *all_the_things
+  database: sandvich_production
