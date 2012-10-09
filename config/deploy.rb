@@ -21,5 +21,6 @@ role :db,  location, :primary => true # This is where Rails migrations will run
 
 ssh_options[:forward_agent] = true
 
+before "deploy:setup", "rvm:install_ruby"
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
