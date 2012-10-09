@@ -12,7 +12,7 @@ gem 'rvm-capistrano'
 gem 'typhoeus'
 gem 'wirble'
 
-#group :development, :test do
+group :development, :test do
   # if cas_test_toolkit is removed
   # gem 'factory_girl_rails', git: "git@github.com:jonesdeini/factory_girl_rails.git"
   # gem 'minitest-rails'
@@ -20,7 +20,7 @@ gem 'wirble'
 
   gem 'cas_test_toolkit', '0.0.4', git: 'git@github.com:Liaison-Intl/cas_test_toolkit.git'
   #gem 'cas_test_toolkit', '0.0.5', path: '~/cas_test_toolkit'
-#end
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
