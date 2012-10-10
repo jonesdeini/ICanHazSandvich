@@ -24,6 +24,7 @@ ssh_options[:forward_agent] = true
 namespace :configs do
   task :symlink do
     run "cp -R ~/shared/config/* #{release_path}/config/"
+    run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
   end
 end
 
