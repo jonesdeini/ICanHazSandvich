@@ -31,17 +31,17 @@ end
 namespace :deploy do
   desc "start thin"
   task :start, roles: :app, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec thin start -C ./config/thin.yml -e production"
+    run "cd #{current_path} && bundle exec thin start -C ./config/thin.yml"
   end
 
   desc "reload thin"
   task :reload, roles: :app, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec thin restart -C ./config/thin.yml -e production"
+    run "cd #{current_path} && bundle exec thin restart -C ./config/thin.yml"
   end
 
   desc "stop thin"
   task :stop, roles: :app, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec thin stop -C ./config/thin.yml -e production"
+    run "cd #{current_path} && bundle exec thin stop -C ./config/thin.yml"
   end
 
   desc "stop then start thin"
