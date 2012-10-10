@@ -28,10 +28,33 @@ namespace :configs do
   end
 end
 
+namespace :deploy do
+  desc "start thin"
+  task :start, roles: :app, except: { no_release: true } do
+    run "cd #{current_path} && bundle exec thin start -C ./config/thin.yml -e production"
+  end
+
+  desc "reload thin"
+  task :reload, roles: :app, except: { no_release: true } do
+    run "cd #{current_path} && bundle exec thin restart -C ./config/thin.yml -e production"
+  end
+
+  desc "stop thin"
+  task :stop, roles: :app, except: { no_release: true } do
+    run "cd #{current_path} && bundle exec thin stop -C ./config/thin.yml -e production"
+  end
+
+  desc "stop then start thin"
+  task :restart, roles: :app, except: { no_release: true } do
+    stop
+    start
+  end
+end
+
 before "deploy:setup", "rvm:install_ruby"
 
 after "deploy:update_code", "deploy:migrate"
 
 before "deploy:finalize_update", "configs:symlink"
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
+
+after "deploy:restart", "deploy:cleanup"

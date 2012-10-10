@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '3.2.8'
 gem 'rvm-capistrano'
+gem 'thin'
 gem 'typhoeus'
 gem 'wirble'
 
