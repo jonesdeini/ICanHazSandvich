@@ -19,8 +19,8 @@ group :development, :test do
   # gem 'minitest-rails'
   gem 'minitest-rails-capybara'
 
-  gem 'cas_test_toolkit', '0.0.4', git: 'git@github.com:Liaison-Intl/cas_test_toolkit.git'
-  #gem 'cas_test_toolkit', '0.0.5', path: '~/cas_test_toolkit'
+  gem 'cas_test_toolkit', '0.0.5', git: 'git@github.com:Liaison-Intl/cas_test_toolkit.git'
+  #gem 'cas_test_toolkit', path: '~/cas_test_toolkit'
 end
 
 # Gems used only for assets and not required
