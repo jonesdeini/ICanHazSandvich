@@ -1,5 +1,6 @@
-PATH
-  remote: ~/cas_test_toolkit
+GIT
+  remote: git@github.com:Liaison-Intl/cas_test_toolkit.git
+  revision: 35798ea591ff52aea6ec60068c46f6f7fd74d4b9
   specs:
     cas_test_toolkit (0.0.5)
       factory_girl (~> 4.0.0)
