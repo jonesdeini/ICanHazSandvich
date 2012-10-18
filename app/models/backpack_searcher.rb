@@ -18,6 +18,8 @@ class BackpackSearcher
         p.inventories.delete_all
       end
 
+      p.bp_slots = backpack["result"]["num_backpack_slots"]
+
       BaseItem.all.each do |item|
         item_count = item.search backpack
         unless item_count == 0
