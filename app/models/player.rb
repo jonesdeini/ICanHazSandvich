@@ -17,6 +17,7 @@ class Player < ActiveRecord::Base
 # scopes
   scope :sort_by_updated_at, order('updated_at')
   scope :sort_by_inv_count, order('inventories_count')
+  scope :sort_by_bp_slots, order('bp_slots')
 
 # class methods
   def self.sort_scope(sort_key)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121005153924) do
+ActiveRecord::Schema.define(:version => 20121018024902) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20121005153924) do
     t.boolean  "hide"
     t.boolean  "traded"
     t.integer  "inventories_count"
+    t.integer  "bp_slots"
   end
 
 end
