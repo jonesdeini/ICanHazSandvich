@@ -19,6 +19,7 @@ class BackpackSearcher
       end
 
       p.bp_slots = backpack["result"]["num_backpack_slots"]
+      p.save
 
       BaseItem.all.each do |item|
         item_count = item.search backpack
