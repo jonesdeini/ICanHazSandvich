@@ -10,7 +10,8 @@ class IntoxgamingScraper < ServerUrlRetriever
   end
 
   def parse_server_addresses(server_list)
-    server_list.scan(/(http\:\/\/intoxgaming\.gameme\.com\/tf\d+)/).compact.uniq.flatten
+    server_numbers = server_list.scan(/http\:\/\/intoxgaming\.gameme\.com\/tf(\d+)/).compact.uniq.flatten
+    server_numbers.map { |sn| sn = "http://intoxgaming.gameme.com/overview/#{sn}" }
   end
 
 end
