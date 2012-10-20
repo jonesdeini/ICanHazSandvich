@@ -10,8 +10,7 @@ class IntoxgamingScraper < ServerUrlRetriever
   end
 
   def parse_server_addresses(server_list)
-    results = server_list.scan(/(http\:\/\/intoxgaming\.gameme\.com\/tf\d+)/).compact.uniq.flatten
-    puts results
+    server_list.scan(/(http\:\/\/intoxgaming\.gameme\.com\/tf\d+)/).compact.uniq.flatten
   end
 
 end
