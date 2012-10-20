@@ -1,7 +1,7 @@
 class GamelibertyScraper < ServerUrlRetriever
 
   def initialize
-    super "http://gameliberty.gameme.com/overview"
+    super "http://gameliberty.gameme.com"
   end
 
   def call_playerinfo_scraper(server_url, hydra)
