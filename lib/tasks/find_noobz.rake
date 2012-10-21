@@ -1,22 +1,31 @@
 require "benchmark"
 
 task :find_noobz => [
-                        # :gameliberty_noobz,
-                        :intox_noobz,
-                        :lotus_noobz,
-                        :xxl_noobz_refactor
+                      :drunkenbombers_noobz,
+                      # :gameliberty_noobz,
+                      :hyperion_noobz,
+                      :intox_noobz,
+                      :lotus_noobz,
+                      :xxl_noobz_refactor
                     ]
 
 desc "can't stop, won't stop findin' them noobz"
 task :cant_stop_wont_stop => :environment do |task|
   puts task.full_comment
   while
-    XxlScraperRefactor.new
+    DrunkenbombersScraper.new
     # seems to be only idle servers
     #GamelibertyScraper.new
     IntoxgamingScraper.new
     LotusScraper.new
+    XxlScraperRefactor.new
   end
+end
+
+desc "find drunken bombers noobz"
+task :drunkenbombers_noobz => :environment do |task|
+  puts task.full_comment
+  DrunkenbombersScraper.new
 end
 
 desc "find gameliberty noobz"
