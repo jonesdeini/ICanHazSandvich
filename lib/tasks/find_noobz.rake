@@ -2,6 +2,7 @@ require "benchmark"
 
 task :find_noobz => [
                         # :gameliberty_noobz,
+                        :hyperion_noobz,
                         :intox_noobz,
                         :lotus_noobz,
                         :xxl_noobz_refactor
@@ -14,6 +15,7 @@ task :cant_stop_wont_stop => :environment do |task|
     XxlScraperRefactor.new
     # seems to be only idle servers
     #GamelibertyScraper.new
+    HyperiongamingScraper.new
     IntoxgamingScraper.new
     LotusScraper.new
   end
@@ -23,6 +25,12 @@ desc "find gameliberty noobz"
 task :gameliberty_noobz => :environment do |task|
   puts task.full_comment
   GamelibertyScraper.new
+end
+
+desc "find hyperiongaming noobz"
+task :hyperion_noobz => :environment do |task|
+  puts task.full_comment
+  HyperiongamingScraper.new
 end
 
 desc "find intoxgaming noobz"
