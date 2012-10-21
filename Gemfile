@@ -18,12 +18,13 @@ group :development, :test do
   gem "guard-minitest",              "~> 0.5.0"
   gem "guard-spork",                 "~> 1.2.1"
   gem "guard-spork-minitest", git: "git@github.com:jonesdeini/guard-spork-minitest.git"
+  # gem "guard-spork-minitest", path: "~/guard-spork-minitest"
   gem "minitest-matchers",           "~> 1.2.0"
   gem "minitest-rails",              "~> 0.2.0"
   gem "minitest-rails-capybara",     "~> 0.1.0"
   # gem "poltergiest"
   gem "shoulda-matchers",            "~> 1.2.0"
-  gem "spork-rails",                 "~> 3.2.0"
+  gem "spork-rails", git: "git@github.com:jonesdeini/spork-rails.git"
 
   # TODO be fancy
   # for OSX

@@ -8,11 +8,9 @@ require "minitest/pride"
 
 MiniTest::Rails.override_testunit!
 
-# this is included in cas_test_toolkit; if reverting back to
-# my fork of factory_girl_rails uncomment this
-#class MiniTest::Spec
-#    include FactoryGirl::Syntax::Methods
-#end
+class MiniTest::Spec
+  include FactoryGirl::Syntax::Methods
+end
 
 ###############
 #             #
