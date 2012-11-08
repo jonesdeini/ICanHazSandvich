@@ -1,5 +1,7 @@
 ICanHazSandvich::Application.routes.draw do
 
+  resources :searches, except: [:destroy, :update]
+
   get "home/index"
 
   root to: "home#index"

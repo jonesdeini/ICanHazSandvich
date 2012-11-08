@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
   def show
     @item = BaseItem.find params[:id]
 
-    @players = @item.players.sort_scope params[:sort]
+    # FIXME BRO TODO NOTE make hide default to false. dont be lazy
+    @players = @item.players.where(hide: nil).sort_scope params[:sort]
     @players.reverse! unless params[:direction] == "asc"
   end
 
