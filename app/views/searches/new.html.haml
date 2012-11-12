@@ -1,0 +1,5 @@
+%h1 Searches
+-# TODO move this to controller
+- @clans.each do |clan|
+  = check_box_tag "clan[]", clan.to_s
+  %br

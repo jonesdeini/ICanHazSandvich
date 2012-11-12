@@ -9,7 +9,12 @@ class SearchesController < ApplicationController
   end
 
   def new
-
+  @clans = ["Xxl",
+            "Sourceop",
+            "Drunkenbombers",
+            "Hyperiongaming",
+            "Intoxgaming",
+            "Lotus"]
   end
 
   def show
