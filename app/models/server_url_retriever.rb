@@ -25,10 +25,12 @@ class ServerUrlRetriever
 
   def call_playerinfo_scraper(server_url, hydra)
     # over ride me bro
+    raise NotImplementedError
   end
 
   def parse_server_addresses(server_list)
     # over ride me bro
+    raise NotImplementedError
   end
 
 end
