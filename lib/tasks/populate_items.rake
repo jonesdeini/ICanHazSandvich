@@ -1,5 +1,9 @@
 namespace :db do
-  task :populate_items => %w( populate_strange_festive_weapons populate_crates )
+  task :populate_items => %w(
+                             populate_strange_festive_weapons
+                             populate_crates
+                             populate_crate30_stranges
+                            )
 
   def populator(yml_file, klass)
     list = YAML.load_file("#{Rails.root}/db/items/#{yml_file}")
@@ -20,10 +24,16 @@ namespace :db do
     end
   end
 
-  desc "populating strange festive weapons"
-  task :populate_strange_festive_weapons => :environment do |task|
+  desc "populating crates"
+  task :populate_crates => :environment do |task|
     puts task.full_comment
-    populator("strange_festives.yml", StrangeItem)
+    populator("crates.yml", Crate)
+  end
+
+  desc "populating stranges from #30 crate"
+  task :populate_crate30_stranges => :environment do |task|
+    puts task.full_comment
+    populator("crate30_stranges.yml", StrangeItem)
   end
 
   desc "populating hats"
@@ -32,22 +42,22 @@ namespace :db do
     populator("hats.yml", Hat)
   end
 
+  desc "populating meet the pyro items"
+  task :populate_meet_the_pyro_items => :environment do |task|
+    puts task.full_comment
+    populator("meet_the_pyro.yml", Item)
+  end
+
   desc "populating paints"
   task :populate_paints => :environment do |task|
     puts task.full_comment
     populator("paints.yml", Paint)
   end
 
-  desc "populating crates"
-  task :populate_crates => :environment do |task|
+  desc "populating strange festive weapons"
+  task :populate_strange_festive_weapons => :environment do |task|
     puts task.full_comment
-    populator("crates.yml", Crate)
-  end
-
-  desc "populating meet the pyro items"
-  task :populate_meet_the_pyro_items => :environment do |task|
-    puts task.full_comment
-    populator("meet_the_pyro.yml", Item)
+    populator("strange_festives.yml", StrangeItem)
   end
 
 end
