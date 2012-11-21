@@ -9,7 +9,10 @@ class BaseItem < ActiveRecord::Base
   has_many :inventories, :foreign_key => "item_id"
   has_many :players, :through => :inventories
 
-  validates_presence_of :name, :defindex
+  # NOTE vintage lvl0 items dont need a defindex
+  # Future plans are to expand search to fill in defindex. This requires
+  # we have all items in the database(for filled in defindex to mean something)
+  validates_presence_of :name#, :defindex
   validates_uniqueness_of :name
 
   # i wonder which error this would raise if it had 0 params

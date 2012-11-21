@@ -3,6 +3,7 @@ namespace :db do
                              populate_strange_festive_weapons
                              populate_crates
                              populate_crate30_stranges
+                             populate_vintage_lvl0
                             )
 
   def populator(yml_file, klass)
@@ -16,6 +17,7 @@ namespace :db do
       new_item.defindex = item.last["defindex"]
       new_item.quality = item.last["quality"].to_f if item.last["quality"]
       new_item.float_value = item.last["float_value"].to_f if item.last["float_value"]
+      new_item.level = item.last["level"] if item.last["level"]
       if new_item.save
         puts "#{new_item.name} saved!"
       else
@@ -58,6 +60,12 @@ namespace :db do
   task :populate_strange_festive_weapons => :environment do |task|
     puts task.full_comment
     populator("strange_festives.yml", StrangeItem)
+  end
+
+  desc "populating vintage lvl 0"
+  task :populate_vintage_lvl0 => :environment do |task|
+    puts task.full_comment
+    populator("vintage_lvl0.yml", Vintage_Lvl0)
   end
 
 end
