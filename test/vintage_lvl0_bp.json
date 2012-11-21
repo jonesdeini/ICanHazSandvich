@@ -1,0 +1,26 @@
+
+{
+	"result": {
+		"status": 1,
+		"num_backpack_slots": 1000,
+		"items": [
+      {
+        "id": 603609019,
+        "original_id": 18815602,
+        "defindex": 58,
+        "level": 0,
+        "quality": 3,
+        "inventory": 2147483655,
+        "quantity": 1,
+        "origin": 0,
+        "equipped": [
+          {
+            "class": 2,
+            "slot": 1
+          }
+        ]
+      }
+		]
+		
+	}
+}
