@@ -65,7 +65,7 @@ namespace :db do
   desc "populating vintage lvl 0"
   task :populate_vintage_lvl0 => :environment do |task|
     puts task.full_comment
-    populator("vintage_lvl0.yml", Vintage_Lvl0)
+    populator("vintage_lvl0.yml", VintageLvl0)
   end
 
 end
