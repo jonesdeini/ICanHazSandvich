@@ -1,7 +1,7 @@
 
 require 'minitest_helper'
 
-describe VintageLvl0 do
+describe VintageLvl do
 
   before do
     @vintage_lvl0 = create :vintage_lvl0
@@ -10,7 +10,7 @@ describe VintageLvl0 do
   end
 
   it "must be valid" do
-    VintageLvl0.count.must_equal 1
+    VintageLvl.count.must_equal 1
     # NOTE there is one vintage lvl 0 item in lvl0_bp
     @vintage_lvl0.search(@backpack).must_equal 1
   end

@@ -3,7 +3,7 @@ namespace :db do
                              populate_strange_festive_weapons
                              populate_crates
                              populate_crate30_stranges
-                             populate_vintage_lvl0
+                             populate_vintage_lvls
                             )
 
   def populator(yml_file, klass)
@@ -62,10 +62,10 @@ namespace :db do
     populator("strange_festives.yml", StrangeItem)
   end
 
-  desc "populating vintage lvl 0"
-  task :populate_vintage_lvl0 => :environment do |task|
+  desc "populating vintage lvls "
+  task :populate_vintage_lvls => :environment do |task|
     puts task.full_comment
-    populator("vintage_lvl0.yml", VintageLvl0)
+    populator("vintage_lvl.yml", VintageLvl)
   end
 
 end

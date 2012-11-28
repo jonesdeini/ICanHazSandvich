@@ -40,7 +40,7 @@ module ItemSearch
 
   #NOTE this isn't ideal for this type of search
   # this is probably a good point to start the refactor with
-  def vintange_lvl_0_search(json)
+  def vintange_lvl_search(json)
     item_count = 0
     json["result"]["items"].each do |players_item|
       if players_item["level"] == level
