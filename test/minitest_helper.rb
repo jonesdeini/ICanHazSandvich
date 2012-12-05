@@ -4,7 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require "minitest/rails"
 require "minitest/autorun"
 require "minitest/rails/capybara"
-require "minitest/pride"
+require "nyancat-test"
 
 MiniTest::Rails.override_testunit!
 

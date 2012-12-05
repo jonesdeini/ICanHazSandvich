@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/jonesdeini/nyancat-test.git
+  revision: 4f23671c8abe488b42e068a508d1154f9b244790
+  specs:
+    nyancat-test (0.0.1)
+
+GIT
   remote: git@github.com:jonesdeini/factory_girl_rails.git
   revision: fe632cfd9fc31e39aceed476af41a21ee141ffde
   specs:
@@ -245,6 +251,7 @@ DEPENDENCIES
   minitest-matchers (~> 1.2.0)
   minitest-rails (~> 0.2.0)
   minitest-rails-capybara (~> 0.1.0)
+  nyancat-test!
   pg
   rails (= 3.2.8)
   rb-inotify (~> 0.8.8)

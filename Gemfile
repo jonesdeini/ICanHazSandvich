@@ -22,6 +22,7 @@ group :development, :test do
   gem "minitest-matchers",           "~> 1.2.0"
   gem "minitest-rails",              "~> 0.2.0"
   gem "minitest-rails-capybara",     "~> 0.1.0"
+  gem "nyancat-test", git: "git://github.com/jonesdeini/nyancat-test.git"
   # gem "poltergiest"
   gem "shoulda-matchers",            "~> 1.2.0"
   gem "spork-rails", git: "git@github.com:jonesdeini/spork-rails.git"
