@@ -43,7 +43,7 @@ module ItemSearch
   def vintange_lvl_search(json)
     item_count = 0
     json["result"]["items"].each do |players_item|
-      unless players_item["defindex"] = 743 || players_item["defindex"] = 744
+      unless players_item["defindex"] == 743 || players_item["defindex"] == 744
         if players_item["level"] == level
           if players_item["quality"] == quality
             item_count = item_count + 1
