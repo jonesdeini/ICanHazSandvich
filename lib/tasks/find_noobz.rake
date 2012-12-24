@@ -20,6 +20,7 @@ task :cant_stop_wont_stop => :environment do |task|
     IntoxgamingScraper.new
     LotusScraper.new
     SourceopScrape.new
+    TopnotchScrape.new
     XxlScraperRefactor.new
   end
 end
