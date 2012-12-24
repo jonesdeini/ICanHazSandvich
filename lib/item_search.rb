@@ -18,8 +18,8 @@ module ItemSearch
           players_item["attributes"].each do |attrs|
             if attrs["float_value"] == float_value
               item_count = item_count + 1
-           end
-         end
+            end
+          end
         end
       end
     end
@@ -43,9 +43,11 @@ module ItemSearch
   def vintange_lvl_search(json)
     item_count = 0
     json["result"]["items"].each do |players_item|
-      if players_item["level"] == level
-        if players_item["quality"] == quality
-          item_count = item_count + 1
+      unless players_item["defindex"] = 743 || players_item["defindex"] = 744
+        if players_item["level"] == level
+          if players_item["quality"] == quality
+            item_count = item_count + 1
+          end
         end
       end
     end
