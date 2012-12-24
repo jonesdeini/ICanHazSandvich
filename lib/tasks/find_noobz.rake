@@ -18,7 +18,8 @@ task :cant_stop_wont_stop => :environment do |task|
     #GamelibertyScraper.new
     HyperiongamingScraper.new
     IntoxgamingScraper.new
-    LotusScraper.new
+    # down 12/24/12
+    #LotusScraper.new
     SourceopScrape.new
     TopnotchScrape.new
     XxlScraperRefactor.new
