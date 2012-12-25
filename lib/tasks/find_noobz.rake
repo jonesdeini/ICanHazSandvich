@@ -5,7 +5,9 @@ task :find_noobz => [
                       # :gameliberty_noobz,
                       :hyperion_noobz,
                       :intox_noobz,
-                      :lotus_noobz,
+                      # :lotus_noobz,
+                      :sourceop_noobz,
+                      :topnotch_noobz,
                       :xxl_noobz_refactor
                     ]
 
@@ -54,6 +56,18 @@ desc "find lotus noobz"
 task :lotus_noobz => :environment do |task|
   puts task.full_comment
   LotusScraper.new
+end
+
+desc "find source op noobz"
+task :sourceop_noobz => :environment do |task|
+  puts task.full_comment
+  SourceopScraper.new
+end
+
+desc "find top notch noobz"
+task :topnotch_noobz => :environment do |task|
+  puts task.full_comment
+  TopnotchScraper.new
 end
 
 desc "find xxl noobz"
