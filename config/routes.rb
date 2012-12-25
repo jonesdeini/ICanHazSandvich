@@ -3,6 +3,7 @@ ICanHazSandvich::Application.routes.draw do
   resources :searches, except: [:destroy, :update]
 
   get "home/index"
+  get "home/resume"
 
   root to: "home#index"
 
