@@ -13,7 +13,7 @@ gem "thin"
 gem "typhoeus"
 gem "wirble"
 
-gem "omniauth-steam"
+gem "omniauth-openid"
 
 group :development, :test do
   gem "factory_girl_rails", git: "git@github.com:jonesdeini/factory_girl_rails.git"
