@@ -13,6 +13,8 @@ gem "thin"
 gem "typhoeus"
 gem "wirble"
 
+gem "omniauth-steam"
+
 group :development, :test do
   gem "factory_girl_rails", git: "git@github.com:jonesdeini/factory_girl_rails.git"
   gem "guard-minitest",              "~> 0.5.0"
