@@ -28,3 +28,12 @@ s_f_knife:
 s_f_scatter:
   defindex: 669
   quality: 11
+s_f_sandvich:
+  defindex: 1002
+  quality: 11
+s_f_axe:
+  defindex: 1000
+  quality: 11
+s_f_grenade:
+  defindex: 1007
+  quality: 11
