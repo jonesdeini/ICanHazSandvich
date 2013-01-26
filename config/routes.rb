@@ -5,7 +5,9 @@ ICanHazSandvich::Application.routes.draw do
 
   match '/auth/:provider/callback' => 'session#create'
 
-  root to: "session#new"
+  root to: "home#index"
+
+  resources :sessions
 
   resources :items, except: [:destroy]
 
