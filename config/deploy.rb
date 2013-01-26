@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require "delayed/recipes"
 require "rvm/capistrano"
 load "deploy/assets"
 
@@ -18,6 +19,8 @@ set :location, "184.73.157.166"
 role :web, location
 role :app, location
 role :db,  location, :primary => true # This is where Rails migrations will run
+
+set :rails_env, "production" #added for delayed job
 
 ssh_options[:forward_agent] = true
 
@@ -58,3 +61,7 @@ after "deploy:update_code", "deploy:migrate"
 before "deploy:finalize_update", "configs:symlink"
 
 after "deploy:restart", "deploy:cleanup"
+
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
