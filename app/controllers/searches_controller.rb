@@ -4,7 +4,7 @@ class SearchesController < ApplicationController
     params[:clans].each do |clan|
       klass = "#{clan}Scraper".constantize
       # thread.new { klass.new }
-      Delayed::Job.enqueue(ScraperJob.new(klass))
+      klass.delay.new
     end
   end
 
@@ -17,10 +17,4 @@ class SearchesController < ApplicationController
               "Lotus"]
   end
 
-end
-
-class ScraperJob < Struct.new(:klass)
-  def perform
-    klass.new
-  end
 end
