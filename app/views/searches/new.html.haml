@@ -1,8 +1,10 @@
 %h1 Searches
--# TODO move this to controller
+= check_box_tag "select_all"
+= label_tag "select all"
+
 = form_tag "/searches"  do
   - @clans.each do |clan|
     = check_box_tag "clans[]", clan
-    = clan
+    = label_tag clan
     %br
   = submit_tag "bro"
