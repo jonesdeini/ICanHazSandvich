@@ -1,5 +1,12 @@
-.profile_links {
-  width: 300px;
+@mixin profile-base {
   margin-left: auto;
   margin-right: auto;
+}
+.profile_picture {
+  @include profile_base;
+  width: 300px;
+}
+.profile_links {
+  @include profile_base;
+  width: 160px;
 }
