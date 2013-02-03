@@ -1,3 +1,8 @@
 jQuery ->
-  $("#select_all").bind "click", ->
-    $("form input:checkbox").attr "checked" , true
+  button = $("button")
+  button.toggle ->
+    $("input:checkbox").attr("checked","checked")
+    button.text("uncheck all")
+  , ->
+    $("input:checkbox").removeAttr("checked")
+    button.text("check all")

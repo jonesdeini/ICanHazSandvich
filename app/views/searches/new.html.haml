@@ -1,6 +1,5 @@
 %h1 Searches
-= check_box_tag "select_all"
-= label_tag "select all"
+= button_tag "select all"
 
 = form_tag "/searches"  do
   - @clans.each do |clan|
