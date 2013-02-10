@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  require 'net/http' 
+  require 'net/http'
 
 # callbacks
 #  after_create :get_player_info
