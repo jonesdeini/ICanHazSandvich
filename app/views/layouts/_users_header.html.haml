@@ -1,0 +1,7 @@
+.user_header
+  - if current_user
+    = link_to "Profile", user_path(current_user.id)
+    = link_to "Search", searches_path
+    = link_to "Log Out", logout_path
+  -else
+    = link_to image_tag("steam_signin.png"), login_path

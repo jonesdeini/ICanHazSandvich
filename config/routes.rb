@@ -3,11 +3,7 @@ ICanHazSandvich::Application.routes.draw do
   get "home/index"
   get "home/resume"
 
-  match '/auth/:provider/callback' => 'sessions#create'
-
   root to: "home#index"
-
-  resources :sessions
 
   resources :items, except: [:destroy]
 
@@ -20,4 +16,9 @@ ICanHazSandvich::Application.routes.draw do
 
   resources :searches, except: [:destroy, :update]
 
+  match '/auth/:provider/callback' => 'sessions#create'
+  match "/login"  => "sessions#new", :as => :login
+  match "/logout" => "sessions#destroy", :as => :logout
+
+  resources :users
 end
