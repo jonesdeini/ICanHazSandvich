@@ -1,12 +1,9 @@
 class PlayersController < ApplicationController
 
+  before_filter :require_authentication
+
   def index
     @players = Player.all
-  end 
-
-  def create
-    XxlScraper.scrape
-    render :index
   end
 
   def hide

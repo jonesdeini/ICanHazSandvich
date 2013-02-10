@@ -3,7 +3,7 @@ ICanHazSandvich::Application.routes.draw do
   get "home/index"
   get "home/resume"
 
-  match '/auth/:provider/callback' => 'session#create'
+  match '/auth/:provider/callback' => 'sessions#create'
 
   root to: "home#index"
 

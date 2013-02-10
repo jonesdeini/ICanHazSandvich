@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_filter :require_authentication
+
   def index
     @items = BaseItem.all
   end

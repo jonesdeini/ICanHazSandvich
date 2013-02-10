@@ -1,5 +1,7 @@
 class SearchesController < ApplicationController
 
+  before_filter :require_authentication
+
   def create
     params[:clans].each do |clan|
       klass = "#{clan}Scraper".constantize
@@ -9,12 +11,14 @@ class SearchesController < ApplicationController
   end
 
   def new
-    @clans = ["Xxl",
-              "Sourceop",
+    @clans = [
               "Drunkenbombers",
               "Hyperiongaming",
               "Intoxgaming",
-              "Lotus"]
+              "Sourceop",
+              "Topnotch",
+              "Xxl"
+    ]
   end
 
 end
