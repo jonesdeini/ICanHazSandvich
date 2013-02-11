@@ -1,10 +1,5 @@
 %h1 Items
 - @items.each do |item|
   %h2= item.name
-  - item.players.each do |player|
-    %br
-    %img{:src => player.avatar}
-    %a(href="http://www.tf2items.com/profiles/#{player.steam_id}") #{player.name}
-    %br
-    - inv = player.inventories.where(:item_id => item.id).first
-    = "#{inv.item_count} | inventory count: #{player.inventories.count}"
+  = "Players with item: #{Inventory.where(item_id: item.id).count}"
+  = link_to "players with item", item_path(item)
