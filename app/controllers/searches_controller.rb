@@ -3,10 +3,14 @@ class SearchesController < ApplicationController
   before_filter :require_authentication
 
   def create
-    params[:clans].each do |clan|
-      klass = "#{clan}Scraper".constantize
-      # thread.new { klass.new }
-      klass.delay.new
+    @clans = params[:clans]
+    if @clans
+      @clans.each do |clan|
+        klass = "#{clan}Scraper".constantize
+        klass.delay.new
+      end
+    else
+      @clans = [""]
     end
   end
 
