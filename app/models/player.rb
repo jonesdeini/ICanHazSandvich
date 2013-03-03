@@ -18,6 +18,9 @@ class Player < ActiveRecord::Base
   scope :sort_by_updated_at, order('updated_at')
   scope :sort_by_inv_count, order('inventories_count')
   scope :sort_by_bp_slots, order('bp_slots')
+
+  # FIXME these aren't sorts they are filters
+  scope :sort_by_non_outpost_members, where(outpost_member: false)
   scope :sort_by_single_inv_count, where(inventories_count: 1)
 
 # class methods
@@ -34,9 +37,15 @@ class Player < ActiveRecord::Base
     json["response"]["players"].each do |player|
       self.name = player["personaname"]
       self.avatar = player["avatarmedium"]
-      save
     end
+    self.outpost_member = determine_outpost_membership
+    save
   end
   handle_asynchronously :get_player_info
 
+  def determine_outpost_membership
+    !Net::HTTP.get_response(URI.parse("http://www.tf2outpost.com/find/#{steam_id}")).
+      # body.include? name # this would be better but having encoding issues
+      body.include? "No results were found"
+  end
 end
