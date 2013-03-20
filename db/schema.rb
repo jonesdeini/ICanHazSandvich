@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303151732) do
+ActiveRecord::Schema.define(:version => 20130320220142) do
 
   create_table "clans", :force => true do |t|
     t.string   "name"
@@ -58,13 +58,13 @@ ActiveRecord::Schema.define(:version => 20130303151732) do
     t.string   "name"
     t.string   "steam_id"
     t.string   "avatar"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.boolean  "hide"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.boolean  "traded"
     t.integer  "inventories_count"
     t.integer  "bp_slots"
     t.boolean  "outpost_member"
+    t.boolean  "hide",              :default => false
   end
 
   create_table "sessions", :force => true do |t|
