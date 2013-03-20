@@ -1,5 +1,5 @@
 %h1 Items
 - @items.each do |item|
   %h2= item.name
-  = "Players with item: #{Inventory.where(item_id: item.id).count}"
+  = "Players with item: #{item.players.count}"
   = link_to "players with item", item_path(item)
