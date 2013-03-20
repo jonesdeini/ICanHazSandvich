@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_filter :require_authentication
 
   def index
-    @items = BaseItem.all
+    @items = BaseItem.all.sort_by &:name
   end
 
   def show
