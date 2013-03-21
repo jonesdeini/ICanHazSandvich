@@ -9,11 +9,15 @@ class BackpackSearcher
   def search!(backpack, steam_id)
     if backpack["result"]["status"] == 1 && backpack["result"]["num_backpack_slots"] != 50
 
+      # sigh....
+      new = false
+
       # if the player already exists delete their inventory so it
       # can be refreshed
       p = Player.find_or_initialize_by_steam_id steam_id
       if p.new_record?
         puts p.errors.full_messages.to_sentence unless p.save
+        new = true
       else
         p.inventories.delete_all
       end
@@ -24,6 +28,12 @@ class BackpackSearcher
       BaseItem.all.each do |item|
         item_count = item.search backpack
         unless item_count == 0
+          if new
+            item.new_players_count += 1
+            item.save!
+            new = false
+          end
+
           inv = p.inventories.new
           inv.item = item
           inv.item_count = item_count

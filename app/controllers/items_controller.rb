@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = BaseItem.find params[:id]
+    @item.new_players_count = 0
+    @item.save
 
     @players = @item.players.where(hide: false).sort_scope params[:sort]
     @players.reverse! unless params[:direction] == "asc"

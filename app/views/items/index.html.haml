@@ -1,5 +1,9 @@
 %h1 Items
 - @items.each do |item|
   %h2= item.name
-  = "Players with item: #{item.players.count}"
-  = link_to "players with item", item_path(item)
+  %p
+    Players with item: #{item.players.count}
+    - unless item.new_players_count.zero?
+      %span.notification
+        new!(#{item.new_players_count})
+    = link_to "players with item", item_path(item)

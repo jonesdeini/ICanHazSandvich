@@ -49,9 +49,10 @@ ActiveRecord::Schema.define(:version => 20130320220142) do
     t.integer  "quality"
     t.string   "name"
     t.string   "type"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "level"
+    t.integer  "new_players_count", :default => 0
   end
 
   create_table "players", :force => true do |t|
