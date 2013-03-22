@@ -1,0 +1,3 @@
+[submodule "lib/svc_sandvich"]
+	path = lib/svc_sandvich
+	url = git://github.com/jonesdeini/SandvichAsAService.git
