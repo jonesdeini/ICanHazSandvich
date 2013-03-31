@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130320220142) do
 
-  create_table "clans", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
     t.integer  "attempts",   :default => 0
