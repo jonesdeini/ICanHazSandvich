@@ -17,24 +17,13 @@ gem "wirble"
 gem "omniauth-openid"
 
 group :development, :test do
-  gem "factory_girl_rails",          git: "git@github.com:jonesdeini/factory_girl_rails.git"
-  gem "guard-minitest",              "~> 0.5.0"
-  gem "guard-spork",                 "~> 1.2.1"
-  gem "guard-spork-minitest",        git: "git@github.com:jonesdeini/guard-spork-minitest.git"
-  gem "minitest-matchers",           "~> 1.2.0"
-  gem "minitest-rails",              "~> 0.2.0"
+  gem "minitest-rails",              "~> 0.9.1"
   gem "minitest-rails-capybara",     "~> 0.1.0"
   gem "nyancat-test",                git: "git://github.com/jonesdeini/nyancat-test.git"
   # gem "poltergiest"
-  gem "shoulda-matchers",            "~> 1.2.0"
-  gem "spork-rails",                 git: "git@github.com:jonesdeini/spork-rails.git"
   gem "turn"
 
-  # TODO be fancy
-  # for OSX
-  # gem "rb-fsevent",                  "~> 0.9.1"
-  # for linux
-  gem "rb-inotify",                  "~> 0.8.8"
+  gem "rb-inotify",                  "~> 0.9.0"
 end
 
 # Gems used only for assets and not required
