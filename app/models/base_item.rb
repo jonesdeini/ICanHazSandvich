@@ -15,6 +15,8 @@ class BaseItem < ActiveRecord::Base
   validates_presence_of :name#, :defindex
   validates_uniqueness_of :name
 
+  attr_accessible :defindex, :float_value, :level, :name, :quality
+
   # i wonder which error this would raise if it had 0 params
   def search(json)
     # over ride me bro!
