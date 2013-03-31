@@ -1,12 +1,10 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path('../../config/environment', __FILE__)
-
+require "rails/test_help"
 require "minitest/rails"
-require "minitest/autorun"
-require "minitest/rails/capybara"
+# require "minitest/autorun"
+# require "minitest/rails/capybara"
 require "nyancat-test"
-
-MiniTest::Rails.override_testunit!
 
 class MiniTest::Spec
   include FactoryGirl::Syntax::Methods

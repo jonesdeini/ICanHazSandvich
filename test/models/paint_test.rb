@@ -1,18 +1,13 @@
-
-require 'minitest_helper'
+require 'test_helper'
 
 describe Paint do
 
-  before do
-    @white = create :white_paint
+  it "Paint#search" do
+    white = Paint.new defindex: 5039, name: "white_paint"
     file = File.open("./test/sample_bp.json")
-    @backpack = JSON.parse(file.read)
-  end
-
-  it "must find the paint" do
-    Paint.count.must_equal 1
+    backpack = JSON.parse(file.read)
     # NOTE there are 2 white paints in the sample_bp.json
-    @white.search(@backpack).must_equal 2
+    white.search(backpack).must_equal 2
   end
 
 end

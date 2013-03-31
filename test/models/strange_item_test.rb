@@ -1,18 +1,13 @@
-
-require 'minitest_helper'
+require 'test_helper'
 
 describe StrangeItem do
 
-  before do
-    @sf_knife = create :strange_festive_knife
+  it "StrangeItem#search" do
+    sf_knife = StrangeItem.new defindex: 665, name: "strange_festive_knife", quality: 11
     file = File.open("./test/sample_bp.json")
-    @backpack = JSON.parse(file.read)
-  end
-
-  it "must find the crate" do
-    StrangeItem.count.must_equal 1
+    backpack = JSON.parse(file.read)
     # NOTE there are 1 strange festive knives in the sample_bp.json
-    @sf_knife.search(@backpack).must_equal 1
+    sf_knife.search(backpack).must_equal 1
   end
 
 end

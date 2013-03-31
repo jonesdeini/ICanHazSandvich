@@ -1,4 +1,4 @@
-require "minitest_helper"
+require "test_helper"
 
 describe UsersController do
   # it "must be a real test" do

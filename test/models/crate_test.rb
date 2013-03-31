@@ -1,18 +1,13 @@
-
-require 'minitest_helper'
+require 'test_helper'
 
 describe Crate do
 
-  before do
-    @crate_19 = create :crate_19
+  it "Crate#search" do
+    crate_19 = Crate.new defindex: 5022, name: "crate19", float_value: 19.0
     file = File.open("./test/sample_bp.json")
-    @backpack = JSON.parse(file.read)
-  end
-
-  it "must be valid" do
-    Crate.count.must_equal 1
+    backpack = JSON.parse(file.read)
     # NOTE there are 2 crate 19s in the sample_bp.json
-    @crate_19.search(@backpack).must_equal 2
+    crate_19.search(backpack).must_equal 2
   end
 
 end
