@@ -1,12 +1,15 @@
-crate_9:
-  defindex: 5045
-  float_value: 9
 crate_19:
   defindex: 5022
   float_value: 19
+crate_21:
+  defindex: 5045
+  float_value: 21
 crate_30:
   defindex: 5068
   float_value: 30
 crate_40:
   defindex: 5068
   float_value: 40
+crate_50:
+  defindex: 5068
+  float_value: 50
