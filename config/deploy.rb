@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+require 'capistrano-unicorn'
 require "delayed/recipes"
 require "rvm/capistrano"
 load "deploy/assets"
