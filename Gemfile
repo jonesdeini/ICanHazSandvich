@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-gem "capistrano"
 gem "daemons"
 gem "debugger"
 gem "delayed_job_active_record"
@@ -9,12 +8,17 @@ gem "json",                          "~> 1.7.7"
 gem "jquery-rails",                  "~> 2.1.4"
 gem "pg"
 gem "rails",                         "~> 3.2.13"
-gem "rvm-capistrano"
-gem "thin"
 gem "typhoeus"
+gem "unicorn",                       "~> 4.6.2"
 gem "wirble"
 
 gem "omniauth-openid"
+
+group :development do
+  gem 'capistrano',     '~> 2.14.2'
+  gem 'capistrano-unicorn', :require => false
+  gem 'rvm-capistrano', '~> 1.3.0'
+end
 
 group :development, :test do
   gem "minitest-rails",              "~> 0.9.1"

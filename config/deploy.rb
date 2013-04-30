@@ -3,7 +3,7 @@ require "delayed/recipes"
 require "rvm/capistrano"
 load "deploy/assets"
 
-set :rvm_ruby_string, "ruby-1.9.3-p194@ICanHazSandvich"
+set :rvm_ruby_string, "ruby-2.0.0-p0@ICanHazSandvich"
 
 set :application, "ICanHazSandvich"
 set :deploy_to, "/home/sandvich"
@@ -31,29 +31,6 @@ namespace :configs do
   end
 end
 
-namespace :deploy do
-  desc "start thin"
-  task :start, roles: :app, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec thin start -C ./config/thin.yml"
-  end
-
-  desc "reload thin"
-  task :reload, roles: :app, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec thin restart -C ./config/thin.yml"
-  end
-
-  desc "stop thin"
-  task :stop, roles: :app, except: { no_release: true } do
-    run "cd #{current_path} && bundle exec thin stop -C ./config/thin.yml"
-  end
-
-  desc "stop then start thin"
-  task :restart, roles: :app, except: { no_release: true } do
-    stop
-    start
-  end
-end
-
 before "deploy:setup", "rvm:install_ruby"
 
 after "deploy:update_code", "deploy:migrate"
@@ -61,6 +38,8 @@ after "deploy:update_code", "deploy:migrate"
 before "deploy:finalize_update", "configs:symlink"
 
 after "deploy:restart", "deploy:cleanup"
+after 'deploy:restart', 'unicorn:reload' # app IS NOT preloaded
+after 'deploy:restart', 'unicorn:restart'  # app preloaded
 
 after "deploy:stop",    "delayed_job:stop"
 after "deploy:start",   "delayed_job:start"
