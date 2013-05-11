@@ -27,7 +27,7 @@ class SteamIdFetcher
       if steam_id_present
         steam_id = get_steam_id_from_url(url, regex)
         @steam_ids << steam_id
-        BackpackRetriever(@hydra, steam_id) # for now
+        BackpackRetriever.new(@hydra, steam_id) # for now
       elsif regex
         crawl url, regex
       else
