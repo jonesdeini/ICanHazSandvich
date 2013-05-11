@@ -8,7 +8,7 @@ gem "json",                          "~> 1.7.7"
 gem "jquery-rails",                  "~> 2.1.4"
 gem "pg"
 gem "rails",                         "~> 3.2.13"
-gem "typhoeus"
+gem "typhoeus",                      "~> 0.6.3"
 gem "unicorn",                       "~> 4.6.2"
 gem "wirble"
 
@@ -38,9 +38,3 @@ group :assets do
   gem "therubyracer",                :platforms => :ruby
   gem "uglifier",                    ">= 1.0.3"
 end
-
-# To use ActiveModel has_secure_password
-# gem "bcrypt-ruby", "~> 3.0.0"
-
-# To use Jbuilder templates for JSON
-# gem "jbuilder"

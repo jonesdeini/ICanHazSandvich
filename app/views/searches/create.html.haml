@@ -1,12 +1,10 @@
 %h1 TAAAA DAAAAA!!!
 
-hey bro, starting it up meow
+%h2 hey bro, starting it up meow
 
+%h3 you searched for these clans:
 %p
-  you searched for these clans:
-  - @clans.each do |clan|
-    = clan
-
-%p
-  Progress tracker should be designed to allow for integration with
-  golang crawler
+  - @crawlers.each do |crawler|
+    = "clan: #{crawler.clan_url}"
+    %br
+    -# = "steam_ids: #{crawler.steam_ids.count} \n"
